@@ -89,10 +89,10 @@ abstract class TestCase extends PHPUnitTestCase
 
         // if mock file doesn't exist, check parent directory
         if (!file_exists($dir.'/Mock/'.$path) && file_exists($dir.'/../Mock/'.$path)) {
-            return \GuzzleHttp\Psr7\parse_response(file_get_contents($dir.'/../Mock/'.$path));
+            return \GuzzleHttp\Psr7\Message::parseResponse(file_get_contents($dir.'/../Mock/'.$path));
         }
 
-        return \GuzzleHttp\Psr7\parse_response(file_get_contents($dir.'/Mock/'.$path));
+        return \GuzzleHttp\Psr7\Message::parseResponse(file_get_contents($dir.'/Mock/'.$path));
     }
 
     /**
